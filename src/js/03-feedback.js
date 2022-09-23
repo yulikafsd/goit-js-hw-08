@@ -23,18 +23,9 @@ form.addEventListener('submit', onSubmit);
 
 function onLoad() {
   const { email, message } = feedbackForm;
-  if (email === undefined && message === undefined) {
-    return;
-  } else if (email === undefined) {
-    textareaEl.value = message;
-    console.log(message);
-  } else if (message === undefined) {
-    inputEl.value = email;
-    console.log(email);
-  } else {
-    textareaEl.value = message;
-    inputEl.value = email;
-  }
+
+  inputEl.value = email || '';
+  textareaEl.value = message || '';
 }
 
 function onInput() {
@@ -47,7 +38,17 @@ function onInput() {
 function onSubmit(e) {
   e.preventDefault();
   console.log(feedbackForm);
-  inputEl.value = '';
-  textareaEl.value = '';
+  e.target.reset();
   localStorage.clear();
 }
+
+// if (email === undefined && message === undefined) {
+//   return;
+// } else if (email === undefined) {
+//   textareaEl.value = message;
+// } else if (message === undefined) {
+//   inputEl.value = email;
+// } else {
+//   textareaEl.value = message;
+//   inputEl.value = email;
+// }
