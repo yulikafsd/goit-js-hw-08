@@ -99,8 +99,9 @@ function showOriginal(e) {
     e.preventDefault();
 
     const instance = basicLightbox.create(
-        `<img class="basicLightbox-image" src="${e.target.dataset.source}" alt="${e.target.alt}" />`,
+        `<img class="basiclightbox-image" src="${e.target.dataset.source}" alt="${e.target.alt}" />`,
         {
+            className: 'basiclightbox-modal',
             onShow: instance => {
                 window.addEventListener('keydown', onEscKeyPress);
             },
